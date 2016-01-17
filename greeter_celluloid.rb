@@ -6,6 +6,12 @@ class GreeterCelluloid
     @name = name
   end
   def greet(person)
-    "Yay #{person}, I'm a #{@name}!"
+    "> Yay #{person}, I'm a #{@name}!"
   end
+  # We can't call #name= async way
+  # So we need #rename
+  def rename(new_name)
+    @name = new_name
+  end
+
 end

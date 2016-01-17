@@ -3,6 +3,6 @@ class GreeterPlain
     @name = name
   end
   def greet(person)
-    "Yay #{person}, I'm a #{@name}!"
+    "> Yay #{person}, I'm a #{@name}!"
   end
 end

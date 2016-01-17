@@ -10,17 +10,34 @@ require './greeter_celluloid'
 # Run it as `./run.rb`
 me = ARGV[0]
 
+def title(text)
+  puts "\n\n#{text}\n#{'-' * text.length}"
+end
+
+title 'Work with old plain object:'
+
 greeter = GreeterPlain.new('old plain greeter')
-puts greeter.inspect
 puts greeter.greet(me)
-#<GreeterPlain:0x007fc07a867198 @name="old plain greeter">
-# Yay Sasha, I'm a old plain greeter!
+
+title 'Work with Celluloud object:'
 
 actor = GreeterCelluloid.new('just greeter?')
-#<Celluloid::Proxy::Cell(GreeterCelluloid:0x3fd5e1436650) @name="just greeter?">
-puts actor.inspect
 puts actor.greet(me)
-# Yay , I'm a just greeter?!
-actor.async.name = 'async greeter'
+actor.async.name = 'renamed via accessor greeter'
 puts actor.greet(me)
-# Yay , I'm a async greeter!
+
+actor.rename 'rename via method'
+# => "rename via method"
+puts actor.greet(me)
+
+actor.async.rename 'rename via async method'
+# =>
+# Nothing.
+puts actor.greet(me)
+
+# What is imortant:
+# 1) Both `actor.async.name` and `actor.name`
+#    returns value
+# 2) Only `actor.rename` always returns @name,
+#    `actor.async.rename` never do that.
+#    Gotchas happes is when actor is crashed...
