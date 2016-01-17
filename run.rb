@@ -41,3 +41,29 @@ puts actor.greet(me)
 # 2) Only `actor.rename` always returns @name,
 #    `actor.async.rename` never do that.
 #    Gotchas happes is when actor is crashed...
+
+puts "Is actor alive? #{actor.alive?}"
+
+title 'Let\'s crash it...'
+begin
+  actor.goodbye
+rescue RuntimeError
+end
+
+title 'Ok. Now it\'s crashed'
+puts "Is actor alive? #{actor.alive?}"
+
+title 'Dealing with dead actor'
+
+puts 'Tying to rename it.'
+# Here will be an error
+result = begin
+  actor.rename 'rename via method'
+rescue Celluloid::DeadActorError => e
+  e
+end
+puts "Rename result: #{result}"
+
+puts 'How about async?'
+actor.async.rename 'silent fail'
+puts 'Nothing...'
