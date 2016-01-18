@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.6.1)
     celluloid (0.17.2)
       celluloid-essentials
       celluloid-extras
@@ -34,6 +35,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   celluloid
   looksee
   pry
