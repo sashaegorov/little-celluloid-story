@@ -60,9 +60,10 @@ P
 
 MarkdownLog.p <<-P
 This is a good time \
-[to](https://en.wikipedia.org/wiki/Global_interpreter_lock) \ [meet](https://www.igvita.com/2008/11/13/concurrency-is-a-myth-in-ruby/) \
-[Ruby's](http://www.rubyinside.com/does-the-gil-make-your-ruby-code-thread-safe-6051.html)
-[GIL](http://www.rubyinside.com/does-the-gil-make-your-ruby-code-thread-safe-6051.html) if you are not. By the way, all these links are different. Take a look on this seasoned articles.
+[to](https://en.wikipedia.org/wiki/Global_interpreter_lock) \
+[meet](https://www.igvita.com/2008/11/13/concurrency-is-a-myth-in-ruby/) \
+[Ruby's GIL](http://www.rubyinside.com/does-the-gil-make-your-ruby-code-thread-safe-6051.html) \
+if you are [not](http://www.jstorimer.com/blogs/workingwithcode/8085491-nobody-understands-the-gil). By the way, all these links are different. Take a look on this seasoned articles.
 P
 
 MarkdownLog.p <<-P

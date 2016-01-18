@@ -11,6 +11,6 @@ function strip_rvm_path {
   sed -e "s|${_path}||g"
 }
 
-for rb in 1_meet_celluloid; do
-  ruby ${rb}.rb 2>&1 | strip_rvm_path >> README.md
+for rb in stories/??_*.rb; do
+  ruby ${rb} 2>&1 | strip_rvm_path >> README.md
 done
