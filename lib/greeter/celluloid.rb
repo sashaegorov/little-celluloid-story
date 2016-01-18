@@ -1,7 +1,6 @@
 class GreeterCelluloid
-
   include Celluloid
-  attr_accessor :name
+  attr_accessor :name, :boom, :timer
 
   def initialize(name)
     @name = name
@@ -19,6 +18,13 @@ class GreeterCelluloid
 
   def goodbye
     raise "I won't say goodbay..."
+  end
+
+  def boom(delay, text)
+    @Celluloid.after(delay) do |x|
+
+      puts "Boom, #{text}!"
+    end
   end
 
 end

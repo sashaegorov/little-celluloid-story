@@ -1,30 +1,26 @@
-#!/usr/bin/env ruby
-# Require Bundler
-require 'bundler'
-Bundler.require
-
-# Require local scripts
 require './greeter_plain'
 require './greeter_celluloid'
 
-# Run it as `./run.rb`
+# Run it as `./run.rb Alex`
 me = ARGV[0]
 
-def title(text)
-  puts "\n\n#{text}\n#{'-' * text.length}"
+begin
+  title_h1 "Running on: #{RUBY_ENGINE} v#{RUBY_ENGINE_VERSION}"
+rescue NameError
 end
 
-title 'Work with old plain object:'
+title_h1 'Old plain object'
 
 greeter = GreeterPlain.new('old plain greeter')
-puts greeter.greet(me)
 
-title 'Work with Celluloud object:'
+p greeter.greet(me)
+
+title_h1 'Work with Celluloud object:'
 
 actor = GreeterCelluloid.new('just greeter?')
-puts actor.greet(me)
+p actor.greet(me)
 actor.async.name = 'renamed via accessor greeter'
-puts actor.greet(me)
+p actor.greet(me)
 
 actor.rename 'rename via method'
 # => "rename via method"
@@ -44,16 +40,14 @@ puts actor.greet(me)
 
 puts "Is actor alive? #{actor.alive?}"
 
-title 'Let\'s crash it...'
-begin
-  actor.goodbye
-rescue RuntimeError
-end
+title_h1 'Let\'s crash it...'
 
-title 'Ok. Now it\'s crashed'
+code { actor.goodbye }
+
+title_h1 'Ok. Now it\'s crashed'
 puts "Is actor alive? #{actor.alive?}"
 
-title 'Dealing with dead actor'
+title_h1 'Dealing with dead actor'
 
 puts 'Tying to rename it.'
 # Here will be an error
