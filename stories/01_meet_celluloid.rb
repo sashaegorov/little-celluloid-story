@@ -28,7 +28,7 @@ MarkdownLog.code do
 end
 
 MarkdownLog.p <<-P
-So please make sure you *don't* require it as `require 'celluloid'` or you have to deal with refactoring your code in near future. This warning works for Celluloid version #{Celluloid.version}.
+So please make sure you *don't* require it as `require 'celluloid'` in 2016 year or you have to deal with refactoring your code in near future, for example in 2042. This warning is fully supported by Celluloid version #{Celluloid.version}. There is no guarantee it will be the same in future versions, be careful!
 P
 
 MarkdownLog.p <<-P
@@ -55,7 +55,7 @@ P
 MarkdownLog.print Thread.list
 
 MarkdownLog.p <<-P
-Can you see what happened? Yes, now we see not only vanilla `<Thread>` object, we can recognize Celluloid's threads denoted by `<Celluloid::Thread>`. This is a very important concept you should understand it very well. _Celluloid relies on Ruby's `Thread`. Threads behave differently depending on particular Ruby implementation.
+Can you see what happened? Yes, now we see not only vanilla `<Thread>` object, we can recognize Celluloid's threads denoted by `<Celluloid::Thread>`. This is a very important concept you should understand it very well. _Current Celluloid implementation relies on Ruby's_ `Thread`. Threads behave differently depending on particular Ruby implementation.
 P
 
 MarkdownLog.p <<-P
