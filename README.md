@@ -19,7 +19,7 @@ require 'celluloid'
 Boom! As result we have got depreciation warning as show:
 
 ```
-I, [2016-01-19T02:38:53.649352 #27750]  INFO -- : Celluloid 0.17.2 is running in BACKPORTED mode. [ http://git.io/vJf3J ]
+I, [2016-01-19T02:47:31.352948 #30499]  INFO -- : Celluloid 0.17.2 is running in BACKPORTED mode. [ http://git.io/vJf3J ]
 ```
 
 So please make sure you *don't* require it as `require 'celluloid'` or you have to deal with refactoring your code in near future. This warning works for Celluloid version 0.17.2.
@@ -30,7 +30,7 @@ Let's take a look on Ruby `Thread.list`:
 
 ```
 [
-    [0] #<Thread:0x007ff12a8a43a0 run>
+    [0] #<Thread:0x007fc4d88bc3c0 run>
 ]
 ```
 
@@ -47,11 +47,11 @@ I have to say this is the completely silent thing. It outputs nothing, it just r
 
 ```
 [
-    [0] #<Thread:0x007ff12a8a43a0 run>,
-    [1] #<Celluloid::Thread:0x007ff12a0b7020@celluloid-0.17.2/lib/celluloid/group/spawner.rb:47 sleep>,
-    [2] #<Celluloid::Thread:0x007ff12a0adf48@celluloid-0.17.2/lib/celluloid/group/spawner.rb:47 sleep>,
-    [3] #<Celluloid::Thread:0x007ff12b8bf7f8@celluloid-0.17.2/lib/celluloid/group/spawner.rb:47 sleep>,
-    [4] #<Celluloid::Thread:0x007ff12b8af9e8@celluloid-0.17.2/lib/celluloid/group/spawner.rb:47 sleep>
+    [0] #<Thread:0x007fc4d88bc3c0 run>,
+    [1] #<Celluloid::Thread:0x007fc4da0aace8@celluloid-0.17.2/lib/celluloid/group/spawner.rb:47 sleep>,
+    [2] #<Celluloid::Thread:0x007fc4da07b218@celluloid-0.17.2/lib/celluloid/group/spawner.rb:47 sleep>,
+    [3] #<Celluloid::Thread:0x007fc4da05a7e8@celluloid-0.17.2/lib/celluloid/group/spawner.rb:47 sleep>,
+    [4] #<Celluloid::Thread:0x007fc4d88ad668@celluloid-0.17.2/lib/celluloid/group/spawner.rb:47 sleep>
 ]
 ```
 
